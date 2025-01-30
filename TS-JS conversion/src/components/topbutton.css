@@ -1,0 +1,19 @@
+.topScroll-btn button {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: antiquewhite;
+    background-color: darkgreen;
+    padding: 10px 15px;
+    border: 2px solid antiquewhite;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px gray;
+    cursor: pointer;
+}
+
+.topScroll-btn button:hover {
+    transform: scale(1.1);
+}
+
