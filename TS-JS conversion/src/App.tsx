@@ -5,10 +5,10 @@ import ScrollButton from "./components/topbutton.tsx"
 
 function App() {
 
-  const [search, setSearch] = useState("");
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState();
+  const [search, setSearch] = useState<string>("");
+  const [data, setData] = useState<never[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<undefined>();
 
   useEffect (() => {
     const headers = {
@@ -20,15 +20,15 @@ function App() {
     const fetchAllCharacters = async () => {
       try {
         setIsLoading(true);
-        const rawCharacter = await fetch('https://the-one-api.dev/v2/character', {
+        const rawCharacter: Response = await fetch('https://the-one-api.dev/v2/character', {
           headers: headers,
         });
         const data = await rawCharacter.json();
         return data.docs; 
-      } catch (error) {
-          setError(error)
+      } catch (error: unknown) {
+          setError(error) 
       } finally {
-        setIsLoading(false);
+          setIsLoading(false);
       }
 
     };
@@ -61,11 +61,11 @@ function App() {
 
       <ScrollButton />
 
-      {data.filter((character) =>{
+      {data.filter((character: undefined) =>{
         return (
           search.toLowerCase() === "" ? character : character.name.toLowerCase().includes(search)
         )
-      }).map((character, index) => (
+      }).map((character: undefined, index) => (
       
       <ul key={index}>
         <li><a href={character.wikiUrl}>{character.name}</a></li>

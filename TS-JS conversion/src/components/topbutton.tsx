@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import './topbutton.css'
 
 const ScrollButton = () => {
-    const [scrollToTopButton, setScrollToTopButton] = useState(false);
+    const [scrollToTopButton, setScrollToTopButton] = useState<boolean>(false);
 
     useEffect(() => {
       window.addEventListener("scroll", () => {
@@ -24,9 +24,7 @@ const ScrollButton = () => {
     return (
       <div className = "topScroll-btn">
         {scrollToTopButton && (
-          <button
-            onClick={scrollTop}
-          >
+          <button onClick={scrollTop}>
             Top
           </button>
         )}
